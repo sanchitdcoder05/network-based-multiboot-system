@@ -1,0 +1,2 @@
+/srv/nfs/ubuntu *(ro,sync,no_subtree_check,no_root_squash,insecure)
+/srv/nfs/lubuntu *(ro,sync,no_subtree_check,no_root_squash,insecure)

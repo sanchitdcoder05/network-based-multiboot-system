@@ -1,0 +1,40 @@
+DEFAULT menu.c32
+PROMPT 0
+TIMEOUT 100
+
+MENU TITLE SBL Network Multi-Boot System
+
+LABEL lubuntu-nfs
+    MENU LABEL Lubuntu Linux (NFS)
+    KERNEL lubuntu-vmlinuz
+    APPEND initrd=lubuntu-initrd boot=casper ip=dhcp netboot=nfs nfsroot=192.168.122.1:/srv/nfs/lubuntu nopersistent fsck.mode=skip
+LABEL tinycore
+    MENU LABEL TinyCore Linux (NFS)
+    KERNEL vmlinuz64
+    APPEND initrd=corepure64.gz
+LABEL ubuntu-nfs
+    MENU LABEL Ubuntu Linux (NFS)
+    KERNEL ubuntu-vmlinuz
+    APPEND initrd=ubuntu-initrd boot=casper ip=dhcp netboot=nfs nfsroot=192.168.122.1:/srv/nfs/ubuntu fsck.mode=skip toram nopersistent
+LABEL ubuntu-http
+    MENU LABEL Ubuntu Linux (HTTP Live RAM)
+    KERNEL ubuntu-vmlinuz
+    APPEND initrd=ubuntu-initrd \
+        root=/dev/ram0 \
+        ramdisk_size=8000000 \
+        boot=casper \
+        ip=dhcp \
+        cloud-config-url=/dev/null \
+        iso-url=http://10.0.2.2:8080/ubuntu-26.04-desktop-amd64.iso \
+        toram
+LABEL lubuntu-http
+    MENU LABEL Lubuntu Linux (HTTP Live RAM)
+    KERNEL lubuntu-vmlinuz
+    APPEND initrd=lubuntu-initrd \
+        root=/dev/ram0 \
+        ramdisk_size=8000000 \
+        boot=casper \
+        ip=dhcp \
+        cloud-config-url=/dev/null \
+        iso-url=http://10.0.2.2:8080/lubuntu-26.04-desktop-amd64.iso \
+        toram

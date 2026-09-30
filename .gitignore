@@ -1,0 +1,35 @@
+# Linux boot/runtime images
+*.iso
+*.img
+*.qcow2
+*.vmdk
+*.vdi
+*.raw
+
+# Kernel/initramfs
+vmlinuz
+vmlinuz*
+initrd
+initramfs
+*.gz
+
+# Extracted NFS root filesystems
+
+# Build/output
+build/
+output/
+tmp/
+temp/
+
+# Logs
+*.log
+
+# Secrets
+.env
+*.key
+*.pem
+
+# Editor/OS files
+.vscode/
+.idea/
+.DS_Store
